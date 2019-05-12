@@ -123,6 +123,10 @@ code {
   align-items: center;
 }
 
+.property__label, .property__value, .property__unit {
+  margin-right: 10px;
+}
+
 .property--temp {
   font-size: 6em;
   line-height: 1;

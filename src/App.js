@@ -1,7 +1,7 @@
 import React from 'react';
 import Landing from './components/Landing.js';
 import Forecast from './components/Forecast.js';
-import getForecast from './helpers/getForecast.js';
+import { getForecast } from './helpers/ForecastHelpers.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class App extends React.Component {
 
   fetchStationData = (stationID) => {
     getForecast(stationID).then((response) => {
+      if (response.status === 404) return;
       this.setState({
         station: stationID,
         forecast: response.properties
