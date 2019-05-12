@@ -116,7 +116,10 @@ code {
   color: #fff;
   background: var(--color);
 }
-
+.forecast__header {
+  font-size: 1.25em;
+  font-weight: 600;
+}
 .forecast-list {
   font-size: 2em;
   padding: 20px 10px;
@@ -126,6 +129,7 @@ code {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  margin-top: 5px;
 }
 
 .property__label, .property__value, .property__unit {
@@ -133,11 +137,11 @@ code {
 }
 
 .property--temp {
-  font-size: 6em;
+  font-size: 4em;
   line-height: 1;
+  margin: 15px 0;
 }
 .property--unit__temp {
-  /* margin: 10px; */
   font-size: 0.4em;
   align-self: flex-start;
 }

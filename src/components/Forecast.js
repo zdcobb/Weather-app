@@ -18,16 +18,15 @@ class Forecast extends React.Component {
         let view;
         if (this.props.forecast) {
             view = (
-                <div>
+                <div className="forecast-list">
+                    <div className="forecast__header">{this.props.station}</div>
                     <Temperature temp={this.props.forecast.temperature} />
-                    <div className="forecast-list">
-                        <span className="property property--weather"><b>{this.props.forecast.textDescription}</b></span>
-                        <WindComponent speed={this.props.forecast.windSpeed} direction={this.props.forecast.windDirection} />
-                        <GenericProperty desc="Humidity" condition={this.props.forecast.relativeHumidity} />
-                        <GenericProperty desc="Dew Point" condition={this.props.forecast.dewpoint} />
-                        <AirPressureComponent condition={this.props.forecast.barometricPressure} />
-                        <VisibilityComponent condition={this.props.forecast.visibility} />
-                    </div>
+                    <span className="property forecast__header">{this.props.forecast.textDescription}</span>
+                    <WindComponent speed={this.props.forecast.windSpeed} direction={this.props.forecast.windDirection} />
+                    <GenericProperty desc="Humidity" condition={this.props.forecast.relativeHumidity} />
+                    <GenericProperty desc="Dew Point" condition={this.props.forecast.dewpoint} />
+                    <AirPressureComponent condition={this.props.forecast.barometricPressure} />
+                    <VisibilityComponent condition={this.props.forecast.visibility} />
                 </div>
                 )
             

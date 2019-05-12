@@ -6,23 +6,31 @@ class Temperature extends React.Component {
       super(props);
       this.state = {
           display: 'C'
-      }
+    }
   }
   handleClick = (event) => {
       this.setState({ display: event.target.value });
   }
   render() {
-      let temp = this.props.temp.value;
+    let temp = this.props.temp.value;
+    if (!temp) {
+      return (
+        <div className="property property--temp">
+          <span className="value">Temp. Unavailable</span>
+        </div>
+      )
+    } else {
       if (this.state.display === 'F') temp = ((temp * 1.8) + 32);
       return (
         <div className="property property--temp">
           <span className="value">{temp.toFixed(2)} </span>
           <span className="property--unit property--unit__temp">
-            <button className={this.state.display === 'C' ? 'temp__btn temp__btn--selected' : 'temp__btn'} onClick={this.handleClick} value="C">°C</button> / 
+            <button className={this.state.display === 'C' ? 'temp__btn temp__btn--selected' : 'temp__btn'} onClick={this.handleClick} value="C">°C</button> /
             <button className={this.state.display === 'F' ? 'temp__btn temp__btn--selected' : 'temp__btn'} onClick={this.handleClick} value="F">°F</button>
-          </span>          
+          </span>
         </div>
       )
+    }
   }
 }
 function WindComponent(props) {
@@ -59,12 +67,22 @@ function VisibilityComponent(props) {
 }
 
 function GenericProperty(props) {
+  let info = !props.condition.value ? 'Information unavailable' : props.condition.value.toFixed(2);
   return (
       <div className="property">
           <span className="property__label">{props.desc}: </span>
-          <span className="property__value">{props.condition.value.toFixed(2)}</span>
+          <span className="property__value">{info}</span>
           <span className="property__unit">{translateUnitCode(props.condition.unitCode)}</span>
       </div>
+  )
+}
+
+function NoInfo(props) {
+  return (
+    <div className="property">
+      <span className="property_label">{props.desc}</span>
+      <span className="property__value">No information available</span>
+    </div>
   )
 }
 

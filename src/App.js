@@ -14,6 +14,7 @@ class App extends React.Component {
 
   fetchStationData = (stationID) => {
     getForecast(stationID).then((response) => {
+      console.log(response);
       // if (response.status === 404) return;
       this.setState({
         station: stationID,
