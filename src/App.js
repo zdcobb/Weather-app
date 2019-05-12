@@ -12,7 +12,7 @@ class App extends React.Component {
     }
   }
 
-  fetchStationData = async (stationID) => {
+  fetchStationData = (stationID) => {
     getForecast(stationID).then((response) => {
       this.setState({
         station: stationID,
@@ -21,17 +21,22 @@ class App extends React.Component {
     });
   }
 
+  clearStationSelection = () => {
+    this.setState({ station: ''})
+  }
+
   render() {
     let pageShown;
     if (this.state.station !== '') {
-      pageShown = <Forecast station={this.state.station} forecast={this.state.forecast} />;
+      pageShown = <Forecast station={this.state.station} forecast={this.state.forecast} clearStation={this.clearStationSelection} />;
     } else {
       pageShown = <Landing fetchData={this.fetchStationData} />;
     }
     return (
       <div className="App">
-        
-        {pageShown}
+        <div className="content">
+          {pageShown}
+        </div>
 
         <footer className="footer">
           <span>Designed & Developed by Zachary Cobb.</span>

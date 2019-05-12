@@ -27,12 +27,18 @@ code {
   padding: 25px;
   box-sizing: border-box;
   display: flex;
+  flex-flow: column;
   color: #fff;
 }
 
+.content {
+  flex: 1;
+  display: flex;
+}
+
 .footer {
-  position: absolute;
-  left: 0;
+  position: fixed;
+  right: 0;
   bottom: 0;
   color: #fff;
   padding: 5px 10px;
@@ -104,6 +110,11 @@ code {
   transform: scale(0.95);
   color: #fff;
   background: var(--color);
+}
+
+.forecast-list {
+  font-size: 2em;
+  padding: 20px 10px;
 }
 
 .property {
