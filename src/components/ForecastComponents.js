@@ -1,5 +1,5 @@
 import React from 'react';
-import {translateUnitCode} from '../helpers/ForecastHelpers.js';
+import {translateUnitCode, getWindDirection} from '../helpers/ForecastHelpers.js';
 
 class Temperature extends React.Component {
   constructor(props) {
@@ -68,10 +68,10 @@ function GenericProperty(props) {
   )
 }
 
-function getWindDirection(degree) {
-  let divisions = Math.floor((degree - 15 ) / 45);
-  let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];
-  return directions[divisions];  
-}
+// function getWindDirection(degree) {
+//   let divisions = Math.floor((degree - 15 ) / 45);
+//   let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];
+//   return directions[divisions];  
+// }
 
 export { Temperature, WindComponent, AirPressureComponent, VisibilityComponent, GenericProperty };

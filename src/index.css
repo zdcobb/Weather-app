@@ -75,15 +75,20 @@ code {
 }
 
 .input-group__input {
-  /* border: none; */
-  border: 1px solid white;
-  border-radius: 7px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  /* border-radius: 7px; */
+  /* border: 1px solid white; */
   background: transparent;
-  padding: 7px;
+  margin: 10px 0;
+  padding: 3px;
   color: #fff;
   font-family: "Nunito";
-  font-size: 0.7em;
+  font-size: 0.8em;
   text-align: center;
+}
+.input-group__input::placeholder {
+  font-size: 0.6em;
 }
 
 .input-group__input:focus {

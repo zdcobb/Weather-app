@@ -26,10 +26,10 @@ function translateUnitCode(unitCode) {
     else return unitDict[code];
 }
 
-function getDirection(degree) {
-    let divisions = Math.floor(degree / 45);
+function getWindDirection(degree) {
+    let divisions = Math.floor((degree) / 45);
     let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];
     return directions[divisions];  
 }
 
-export { getForecast, translateUnitCode};
+export { getForecast, translateUnitCode, getWindDirection};

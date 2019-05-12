@@ -32,7 +32,7 @@ class Landing extends React.Component {
                     <form name="landing-form" className="form form--centered" onSubmit={this.handleSubmit}>
                         <div className="input-group input-group--column">
                             <label className="input-group__label">Enter a Station ID</label>
-                            <input type="text" className="input-group__input" pattern="[a-zA-Z]{4}" value={this.state.station} onChange={this.handleChange} />
+                            <input type="text" className="input-group__input" placeholder="4-Digit Station ID; e.g. KIAD" pattern="[a-zA-Z]{4}" value={this.state.station} onChange={this.handleChange} />
                             {this.state.errors.map((error) => {
                                 return (<label className="input-group__errorMsg">{error}</label>);
                             })}
