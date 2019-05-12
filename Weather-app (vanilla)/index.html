@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>How's the Weather?</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <h1>Weather App</h1>
+        </header>
+
+        <section id="findStation">
+            <form name="stationForm">
+                <p>Get Weather info from your station.</p>
+                <input type="text" id="stationInput" name="stationID" placeholder="Station ID; e.g. KIAD" pattern="[A-Za-z]{4}" title="Invalid. Must be 4 capital letters" required>
+                <p id="errorMsg"></p>
+                <button type="button" id="stationBtn" class="btn" name="submitBtn">Submit</button>
+            </form>
+        </section>
+
+        <section id="weatherData">
+            <h1>Weather info for Station <span id="stationName"></span></h1>
+            <li id="conditions">
+
+            </li>
+        </section>
+    </div>
+</body>

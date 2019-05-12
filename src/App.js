@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Landing from './components/Landing.js';
+import Forecast from './components/Forecast.js';
+import getForecast from './helpers/getForecast.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      station: '',
+      forecast: {}
+    }
+  }
+
+  fetchStationData = async (stationID) => {
+    getForecast(stationID).then((response) => {
+      this.setState({
+        station: stationID,
+        forecast: response.properties
+      });
+    });
+  }
+
+  render() {
+    let pageShown;
+    if (this.state.station !== '') {
+      pageShown = <Forecast station={this.state.station} forecast={this.state.forecast} />;
+    } else {
+      pageShown = <Landing fetchData={this.fetchStationData} />;
+    }
+    return (
+      <div className="App">
+        
+        {pageShown}
+
+        <footer className="footer">
+          <span>Designed & Developed by Zachary Cobb.</span>
+        </footer>
+      </div>
+    )
+  }
 }
 
 export default App;
